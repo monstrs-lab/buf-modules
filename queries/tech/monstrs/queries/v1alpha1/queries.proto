@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package tech.monstrs.queries.v1alpha1;
+
+import "google/protobuf/timestamp.proto";
+
+message Query {
+  message Pager {
+    int32 offset = 1;
+    int32 take = 2;
+  }
+
+  enum OrderDirection {
+    ORDER_DIRECTION_ASC_UNSPECIFIED = 0;
+    ORDER_DIRECTION_DESC = 1;
+  }
+
+  message Order {
+    string field = 1;
+    OrderDirection direction = 2;
+  }
+
+  message Search {
+    repeated string fields = 1;
+    string value = 2;
+  }
+
+  enum Operator {
+    OPERATOR_AND_UNSPECIFIED = 0;
+    OPERATOR_OR = 1;
+  }
+
+  message IDConditions {
+    repeated string in = 1;
+    string eq = 2;
+  }
+
+  message ID {
+    Operator operator = 1;
+    IDConditions conditions = 2;
+  }
+
+  message DateRangeConditions {
+    google.protobuf.Timestamp from = 1;
+    google.protobuf.Timestamp to = 2;
+  }
+
+  message DateRange {
+    Operator operator = 1;
+    DateRangeConditions conditions = 2;
+  }
+}

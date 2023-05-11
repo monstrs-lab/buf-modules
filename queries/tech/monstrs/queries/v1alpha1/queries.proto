@@ -11,7 +11,7 @@ message Query {
   }
 
   enum OrderDirection {
-    ORDER_DIRECTION_ASC_UNSPECIFIED = 0;
+    ORDER_DIRECTION_ASC = 0;
     ORDER_DIRECTION_DESC = 1;
   }
 
@@ -30,7 +30,7 @@ message Query {
   }
 
   enum Operator {
-    OPERATOR_AND_UNSPECIFIED = 0;
+    OPERATOR_AND = 0;
     OPERATOR_OR = 1;
   }
 

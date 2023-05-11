@@ -21,7 +21,11 @@ message Query {
   }
 
   message Search {
-    repeated string fields = 1;
+    message Field {
+      repeated string path = 1;
+    }
+
+    repeated Field fields = 1;
     string value = 2;
   }
 

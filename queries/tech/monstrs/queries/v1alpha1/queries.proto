@@ -37,6 +37,7 @@ message Query {
   message IDConditions {
     repeated string in = 1;
     string eq = 2;
+    bool exists = 3;
   }
 
   message ID {
@@ -56,6 +57,7 @@ message Query {
 
   message DateConditions {
     google.protobuf.Timestamp eq = 1;
+    bool exists = 2;
   }
 
   message Date {

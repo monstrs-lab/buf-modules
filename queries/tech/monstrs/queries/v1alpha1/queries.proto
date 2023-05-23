@@ -53,4 +53,13 @@ message Query {
     Operator operator = 1;
     DateRangeConditions conditions = 2;
   }
+
+  message DateConditions {
+    google.protobuf.Timestamp eq = 1;
+  }
+
+  message Date {
+    Operator operator = 1;
+    DateConditions conditions = 2;
+  }
 }

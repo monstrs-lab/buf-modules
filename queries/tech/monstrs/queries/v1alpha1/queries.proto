@@ -34,10 +34,26 @@ message Query {
     OPERATOR_OR = 1;
   }
 
+  message StringValue {
+    string value = 1;
+  }
+
+  message StringValues {
+    repeated string values = 1;
+  }
+
+  message BooleanValue {
+    bool value = 1;
+  }
+
+  message DateValue {
+    google.protobuf.Timestamp value = 1;
+  }
+
   message IDConditions {
-    repeated string in = 1;
-    string eq = 2;
-    bool exists = 3;
+    StringValues in = 1;
+    StringValue eq = 2;
+    BooleanValue exists = 3;
   }
 
   message ID {
@@ -46,8 +62,8 @@ message Query {
   }
 
   message DateRangeConditions {
-    google.protobuf.Timestamp from = 1;
-    google.protobuf.Timestamp to = 2;
+    DateValue from = 1;
+    DateValue to = 2;
   }
 
   message DateRange {
@@ -56,8 +72,8 @@ message Query {
   }
 
   message DateConditions {
-    google.protobuf.Timestamp eq = 1;
-    bool exists = 2;
+    DateValue eq = 1;
+    BooleanValue exists = 2;
   }
 
   message Date {

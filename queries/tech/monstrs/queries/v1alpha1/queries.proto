@@ -80,4 +80,15 @@ message Query {
     Operator operator = 1;
     DateConditions conditions = 2;
   }
+
+  message StringConditions {
+    StringValues in = 1;
+    StringValue eq = 2;
+    StringValue contains = 3;
+  }
+
+  message String {
+    Operator operator = 1;
+    StringConditions conditions = 2;
+  }
 }

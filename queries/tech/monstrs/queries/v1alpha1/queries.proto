@@ -42,6 +42,14 @@ message Query {
     repeated string values = 1;
   }
 
+  message IntValue {
+    int32 value = 1;
+  }
+
+  message IntValues {
+    repeated int32 values = 1;
+  }
+
   message BooleanValue {
     bool value = 1;
   }
@@ -90,5 +98,15 @@ message Query {
   message String {
     Operator operator = 1;
     StringConditions conditions = 2;
+  }
+
+  message IntConditions {
+    IntValues in = 1;
+    IntValue eq = 2;
+  }
+
+  message Int {
+    Operator operator = 1;
+    IntConditions conditions = 2;
   }
 }

@@ -50,6 +50,14 @@ message Query {
     repeated int32 values = 1;
   }
 
+  message Int64Value {
+    int64 value = 1;
+  }
+
+  message Int64Values {
+    repeated int64 values = 1;
+  }
+
   message BooleanValue {
     bool value = 1;
   }
@@ -82,6 +90,8 @@ message Query {
   message DateConditions {
     DateValue eq = 1;
     BooleanValue exists = 2;
+    DateValue lt = 3;
+    DateValue gt = 4;
   }
 
   message Date {
@@ -108,5 +118,15 @@ message Query {
   message Int {
     Operator operator = 1;
     IntConditions conditions = 2;
+  }
+
+  message Int64Conditions {
+    Int64Values in = 1;
+    Int64Value eq = 2;
+  }
+
+  message Int64 {
+    Operator operator = 1;
+    Int64Conditions conditions = 2;
   }
 }
